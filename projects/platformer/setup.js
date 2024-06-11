@@ -92,9 +92,11 @@ let animationDetails = {};
 
 var collectableList = {
   database: { image: "images/collectables/database.png" },
-  diamond: { image: "images/collectables/diamond-head.png" },
+  diamond: { image: "https://pbs.twimg.com/media/E3vbwZrVcAA7M7E.png" },
   grace: { image: "images/collectables/grace-head.png" },
   kennedi: { image: "images/collectables/kennedi-head.png" },
   max: { image: "images/collectables/max-head.png" },
-  steve: { image: "images/collectables/steve-head.png" },
-};
+  steve: { image: "images/collectables/steve-head.png"},
+}
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX__Rcb6kMe0wArlNi9vZL6NHPw9h6i6QIpg&s
+"images/collectables/diamond-head.png"
