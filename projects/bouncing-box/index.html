@@ -8,7 +8,7 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: lightpink;
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
@@ -19,6 +19,7 @@
 		}
 		.board{
 			height: 100vh;
+			background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfMUOghO1DE45Rd8JvsPvtdw87-yBb-UNPUQ&s");
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -49,7 +50,7 @@
 
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX) {
-				box.css("left", newPositionX);
+				box.css( "left", newPositionX);
 			}
 
 			// changes the text displayed on the Box
@@ -62,9 +63,9 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			var positionX = 0
-			var points = 0
-			var speed = 10
+			var positionX = 0;
+			var points = 0;
+			var speed = 10;
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -74,6 +75,11 @@
 			// Your code to imcrease positionX by 10 here
 			positionX = positionX + speed
 			moveBoxTo(positionX)	
+			if (positionX > boardWidth) {
+				speed = -speed;
+			} else if (positionX < 0) {
+				speed = - speed
+			}
 			
 			};
 
@@ -84,10 +90,16 @@
 			*/
 			function handleBoxClick() {
 				positionX = 0;
+
 				// use this code to increase the points variable by one
 				points = points + 1
 				changeBoxText(points);
-				speed += 3 
+				if (speed > 0) {
+					speed+=3;
+				} else if (speed >= 0) {
+					speed-=3;
+				}
+
 			};
 		})();
 	</script>
