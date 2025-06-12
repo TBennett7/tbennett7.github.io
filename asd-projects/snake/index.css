@@ -1,17 +1,17 @@
 
 body {
-  background-color: darkgreen;
+  background-color: rgb(140, 130, 184);
 }
 
 #board {
   width: 440px;
   height: 440px;
   border: 1px solid white;
-  background-color: black;
+  background-color: rgb(38, 33, 56);
 }
 
 #score, #highScore {
-  color: white;
+  color: rgb(28, 22, 43);
 }
 
 .snake, .apple {
