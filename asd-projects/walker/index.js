@@ -36,7 +36,7 @@ function runProgram(){
   */
   function handleEvent(event) {
     function handleKeyDown(event){
-      console.log 
+      console.log(event.key) 
     }
   }
 

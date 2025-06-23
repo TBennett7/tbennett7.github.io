@@ -233,7 +233,7 @@ function hasCollidedWithSnake() {
   
   */
   for (var i = 1; i < snake.body.length; i++){
-    if (snake.head.row === snake.body[i].row && snake.head.columnn === snake.body[i].column){
+    if (snake.head.row === snake.body[i].row && snake.head.column === snake.body[i].column){
       return true;
     }
   }
@@ -338,6 +338,11 @@ function getRandomAvailablePosition() {
     not occupied by a snakeSquare in the snake's body. If it is then set 
     spaceIsAvailable to false so that a new position is generated.
     */
+   for (var i = 0; i < snake.body.length; i++){
+    if (randomPosition.column === snake.body[i].column && randomPosition.row === snake.body[i].row){
+    spaceIsAvailable = false
+      }
+    }
   }
 
   return randomPosition;
