@@ -111,7 +111,7 @@ function moveSnake() {
   column/row properties. 
   
   */
- for (var i = snake.body.legnth - 1; i > 0; i--){
+ for (var i = snake.body.length - 1; i > 0; i--){
   var snakeSquare = snake.body[i];
   var nextSnakeSquare = snake.body[i - 1];
   var nextRow = nextSnakeSquare.row; ;
@@ -232,8 +232,11 @@ function hasCollidedWithSnake() {
   head and each part of the snake's body also knows its own row and column.
   
   */
-
-  return false;
+  for (var i = 1; i < snake.body.length; i++){
+    if (snake.head.row === snake.body[i].row && snake.head.columnn === snake.body[i].column){
+      return true;
+    }
+  }
 }
 
 function endGame() {
