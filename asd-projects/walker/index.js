@@ -28,7 +28,7 @@ function runProgram(){
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
-
+  $(document).on('keyup', handleKeyUp);  
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -64,6 +64,24 @@ function runProgram(){
     console.log("down pressed"); 
     }
   }
+   function handleKeyUp(event){
+    if (event.which === KEY.LEFT){  
+    walker.speedX = 0
+    console.log("left pressed");
+   }  
+    else if (event.which === KEY.RIGHT){ 
+    walker.speedX = 0 
+    console.log("right pressed"); 
+   }
+    else if (event.which === KEY.UP){
+    walker.speedY = 0  
+    console.log("up pressed"); 
+    }
+    else if (event.which === KEY.DOWN){
+    walker.speedY = 0   
+    console.log("down pressed"); 
+    }
+  }
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
@@ -77,13 +95,18 @@ function runProgram(){
     // turn off event handlers
     $(document).off();
   }
-  
-}
-function repositionGameItem(){
+  function repositionGameItem(){
   walker.coordinateX += walker.speedX; 
   walker.coordinateY += walker.speedY; 
 }
 function redrawGameItem(){
   $("#walker").css("top", walker.coordinateY)
   $("#walker").css("left", walker.coordinateX)
+}
+function wallCollison(){
+  if (walker.coordinateX === $("#board").width()  || walker.coordinateX === 0){
+    speedX = coordinateX - speedX
+  }
+    
+}
 }
