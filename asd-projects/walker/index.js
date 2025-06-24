@@ -40,7 +40,7 @@ function runProgram(){
   function newFrame() {
     redrawGameItem();
     repositionGameItem();
-
+    wallCollison();
   }
   
   /* 
@@ -104,9 +104,11 @@ function redrawGameItem(){
   $("#walker").css("left", walker.coordinateX)
 }
 function wallCollison(){
-  if (walker.coordinateX === $("#board").width()  || walker.coordinateX === 0){
-    speedX = coordinateX - speedX
+  if (walker.coordinateX > $("#board").width()  || walker.coordinateX === 0){
+    walker.coordinateX = walker.coordinateX - walker.speedX
   }
-    
+  else if (walker.coordinateY > $("#board").height()  || walker.coordinateY === 0){
+    walker.coordinateY = walker.coordinateY - walker.speedY
+  } 
 }
 }
