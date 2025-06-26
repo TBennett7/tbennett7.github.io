@@ -20,7 +20,7 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-applyFilter();
+applyFilter(reddify);
   
 
   // do not change the below line of code
@@ -32,10 +32,15 @@ applyFilter();
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2, 3 & 5: Create the applyFilter function here
-function applyFilter(){
+function applyFilter(filterFunction){
   for (var i = 0; i <= image.length - 1; i++){
     for (var g = 0; g <= image[i].length - 1; g++){
-      console.log(image[i][g])
+      var pixel = image[i][g];
+      var pixelArray = rgbStringToArray(pixel);
+      // Modify color values here later
+      filterFunction(pixelArray);
+      updatedPixel = rgbArrayToString(pixelArray);
+      image[i][g] = updatedPixel
     }
   }
 
@@ -45,11 +50,27 @@ function applyFilter(){
 
 
 // TODO 6: Create the keepInBounds function
-
-
+function keepInBounds(num){
+  if (num < 0){
+    return 0
+  }
+  else if (num > 255){
+    return 255
+  }
+  else {
+    return num
+  }
+}
+console.log(keepInBounds(-20)); // should print 0
+console.log(keepInBounds(300)); // should print 255
+console.log(keepInBounds(125)); // should print 125
 // TODO 4: Create reddify filter function
-
-
+function reddify(pixelArray){
+  pixelArray[RED] = 200
+}
+var testArray = [100, 100, 100];
+reddify(testArray);
+console.log(testArray); // Should show [200, 100, 100]
 // TODO 7 & 8: Create more filter functions
 
 
